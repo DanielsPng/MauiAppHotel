@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotelTransilvania.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="{StaticResource Tertiary}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10">
+        <Label 
+            Text="Cálculo da Diária"
+            FontFamily="OswaldRegular"
+            FontSize="Large"
+            TextColor="{StaticResource Secondary}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Frame BackgroundColor="#404040"
+               BorderColor="Transparent">
+            
+            <VerticalStackLayout>
+
+                <Grid RowDefinitions="auto, auto"
+                      ColumnDefinitions="*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Adultos:"
+                           FontSize="18"
+                           TextColor="{StaticResource Primary}"
+                           FontFamily="ItimRegular"/>
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Crianças:"
+                           FontSize="18"
+                           TextColor="{StaticResource Primary}"
+                           FontFamily="ItimRegular"/>
+
+                    
+                    
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource Quad}"
+                           Text="{Binding Value}"
+                           FontSize="20"
+                           FontFamily="OswaldRegular"
+                           BindingContext="{x:Reference stp_adultos}"/>
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource Quad}"
+                           Text="{Binding Value}"
+                           FontSize="20"
+                           FontFamily="OswaldRegular"
+                           BindingContext="{x:Reference stp_criancas}"/>
+                    <Label/>
+                    
+                    
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_adultos"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1">
+                    </Stepper>
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                             x:Name="stp_criancas"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1">
+                    </Stepper>
+
+                </Grid>
+
+                <Label Text="Escolha sua suíte"
+                       FontFamily="OswaldRegular"
+                       FontSize="25"/>
+
+                <Picker x:Name="pck_quarto"
+                        Title="Selecione sua Acomodação"
+                        FontFamily="ItimRegular"
+                        TitleColor="Yellow"
+                        ItemDisplayBinding="{Binding Descricao}"/>
+
+                <Label/>
+
+                <Frame BackgroundColor="#212121"
+                       BorderColor="Transparent">
+
+                    <VerticalStackLayout>
+
+                        <Label Text="Período da Estadia"
+                               TextColor="{StaticResource Secondary}"
+                               FontFamily="OswaldRegular"
+                               FontSize="20"/>
+
+                        <HorizontalStackLayout>
+                            
+                            <Label Text="Check-in:"
+                                   TextColor="{StaticResource Primary}"
+                                   FontFamily="ItimRegular"
+                                   FontSize="15"
+                                   Padding="10"
+                                   Margin="10"/>
+                            <DatePicker x:Name="dtpck_checkin"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        Format="dd/MM/yyyy"/>
+                            
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+
+                            <Label Text="Check-out:"
+                                   TextColor="{StaticResource Primary}"
+                                   FontFamily="ItimRegular"
+                                   FontSize="15"
+                                   Padding="10"
+                                   Margin="10"/>
+                            
+                            <DatePicker x:Name="dtpck_checkout"
+                                        Format="dd/MM/yyyy"/>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                    
+                </Frame>
+
+                <Label/>
+
+                <Button Text="Avançar"
+                        FontFamily="OswaldRegular"
+                        FontSize="25"
+                        BackgroundColor="{StaticResource Secondary}"
+                        Clicked="Avanco"/>
+
+            </VerticalStackLayout>
+            
+        </Frame>
+        
+    </VerticalStackLayout>
+    
+</ContentPage>

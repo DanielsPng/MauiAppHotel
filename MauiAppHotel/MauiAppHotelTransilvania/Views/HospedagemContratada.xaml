@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotelTransilvania.Views.HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Tertiary}">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="Suíte"
+               TextColor="{StaticResource Secondary}"
+               FontFamily="OswaldRegular"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10"
+               BackgroundColor="#404040"
+               BorderColor="Transparent">
+            <StackLayout  Orientation="Horizontal" >
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Adultos: " />
+                    <Label Text="{Binding QntAdultos}"
+                           TextColor="{StaticResource Primary}"
+                           FontFamily="ItimRegular"
+                           FontSize="20"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Crianças: " />
+                    <Label Text="{Binding QntCriancas}"
+                           TextColor="{StaticResource Primary}"
+                           FontFamily="ItimRegular"
+                           FontSize="20"/>
+                </HorizontalStackLayout>
+
+            </StackLayout>
+
+        </Frame>
+
+        <Frame Margin="10"
+               BackgroundColor="#404040"
+               BorderColor="Transparent">
+
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Check-in: "
+                       TextColor="{StaticResource Primary}"
+                       FontFamily="OswaldRegular"
+                       FontSize="20"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Check-out: "
+                       TextColor="{StaticResource Primary}"
+                       FontFamily="OswaldRegular"
+                       FontSize="20"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       Text="Estadia: "
+                       TextColor="{StaticResource Primary}"
+                       FontFamily="OswaldRegular"
+                       FontSize="20"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="{StaticResource Quad}"
+                       FontFamily="ItimRegular"
+                       FontSize="15"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="{StaticResource Quad}"
+                       FontFamily="ItimRegular"
+                       FontSize="15"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Text="{Binding Estadia}"
+                       TextColor="{StaticResource Quad}"
+                       FontFamily="ItimRegular"
+                       FontSize="15"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Frame Margin="10"
+               BackgroundColor="#404040"
+               BorderColor="Transparent">
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total: "
+                       TextColor="{StaticResource Primary}"
+                       FontFamily="OswaldRegular"
+                       FontSize="20"/>
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "
+                       TextColor="{StaticResource Quad}"
+                       FontFamily="ItimRegular"
+                       FontSize="25"/>
+            </HorizontalStackLayout>
+            
+        </Frame>
+
+        <Button Margin="10"
+                Text="Voltar"
+                FontFamily="OswaldRegular"
+                FontSize="25"
+                BackgroundColor="{StaticResource Secondary}"
+                Clicked="Button_Clicked"/>
+
+        <Button Margin="10"
+                Text="Sobre"
+                FontFamily="OswaldRegular"
+                FontSize="25"
+                BackgroundColor="{StaticResource Secondary}"
+                Clicked="Sobre"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>
